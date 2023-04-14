@@ -15,6 +15,6 @@ const schema = new Schema<UserType>({
     type: { type: Number, required: true }
 })
 
-const modelName: string = 'User';
+const modelName: string = 'user';
 
 export default (connection && connection.models[modelName]) ? connection.models[modelName] as Model<UserType>: model<UserType>(modelName, schema);

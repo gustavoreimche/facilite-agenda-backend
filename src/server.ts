@@ -1,53 +1,16 @@
 import express from 'express';
 import { mongoConnect } from './database/mongo';
-import User from './models/User';
-
-import { Router, Request, Response } from 'express';
-
-const app = express();
-
-const route = Router()
+import agendamentoRoutes from './routes/agendamentoRoutes'
+import cors from 'cors';
 
 mongoConnect();
 
-app.use(express.json())
+const app = express();
 
-// CONTROLLER
-route.get('/', (req: Request, res: Response) => {
-  
-  let newUser = {
-    name: 'guga',
-    password: '123',
-    email: '123@123',
-    type: 0
-  }
-  
-  addUser(newUser);
+app.use(express.json());
 
-  getUsers().then(users => {
-    res.json(users)
-  })
+app.use(cors());
 
-})
+app.use(agendamentoRoutes)
 
-
-//SERVICE
-async function getUsers() {
-  const usuarios = await User.find({})
-  return usuarios;
-}
-
-
-async function addUser(newUser: any) {
-
-  await User.create({
-    name: newUser.name,
-    password: newUser.password,
-    email: newUser.email,
-    type: newUser.type
-  })
-}
-
-app.use(route)
-
-app.listen(3000, () => 'server running on port 3333')
+app.listen(3000)
