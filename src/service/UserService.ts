@@ -17,7 +17,7 @@ export async function addUser(newUser: any) {
 }
 
 export async function updateUser(id: string, user: any) {
-    let userTemp = await User.findOne({ _id: id })
+    let userTemp = await User.findOne({ id })
     if (userTemp != null) {
         userTemp.name = user.name;
         userTemp.email = user.email;
