@@ -1,7 +1,7 @@
 import Agendamento, { AgendamentoType } from "../models/Agendamento";
 
 export async function addAgendamento(agendamento: AgendamentoType) {
-    
+
     return await Agendamento.create(agendamento)
 }
 
@@ -18,18 +18,13 @@ export async function getAgendamentosByUser(idUser: string) {
 }
 
 export async function updateAgendamento(_id: string, agendamento: AgendamentoType) {
-    let agendamentoTemp = await Agendamento.findOne({ _id })
-    if (agendamentoTemp) {
-        agendamentoTemp.nome = agendamento.nome;
-        agendamentoTemp.valor = agendamento.valor;
-        agendamentoTemp.servico = agendamento.servico;
-        agendamentoTemp.date = agendamento.date;
-        agendamentoTemp.formaPag = agendamento.formaPag;
-        agendamentoTemp.hora = agendamento.hora;
-
-        await agendamentoTemp.save();
-        return agendamentoTemp;
-    }
+    let agendamentoTemp = await Agendamento.updateOne({ _id }, {
+        nome: agendamento.nome,
+        valor: agendamento.valor,
+        servico: agendamento.servico,
+        formaPag: agendamento.formaPag
+    })
+    return agendamentoTemp
 }
 
 export async function deleteAgendamento(_id: string) {

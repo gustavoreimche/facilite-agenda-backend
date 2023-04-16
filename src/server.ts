@@ -1,7 +1,8 @@
 import express from 'express';
 import { mongoConnect } from './database/mongo';
-import agendamentoRoutes from './routes/agendamentoRoutes'
 import cors from 'cors';
+import agendamentoRoutes from './routes/agendamentoRoutes'
+import despesasRoutes from './routes/despesasRoutes'
 
 mongoConnect();
 
@@ -11,6 +12,7 @@ app.use(express.json());
 
 app.use(cors());
 
-app.use(agendamentoRoutes)
+app.use('/agendamentos', agendamentoRoutes)
+app.use('/despesas', despesasRoutes)
 
 app.listen(3000)

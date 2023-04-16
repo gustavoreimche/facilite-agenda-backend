@@ -16,7 +16,7 @@ const schema = new Schema<AgendamentoType>({
     nome: { type: String, required: true },
     servico: { type: String, required: true },
     valor: { type: Number, required: true },
-    formaPag: { type: String },
+    formaPag: { type: String, default: 'none'},
     date: { type: Date, required: true },
     idUser: { type: String, required: true, default: '6438a0102b22c9db58afdb99' },
 })
