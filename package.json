@@ -2,11 +2,11 @@
   "name": "facilite-agenda-backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules src/server.ts",
-    "build": "tsc"
+    "build": "tsc",
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "",
