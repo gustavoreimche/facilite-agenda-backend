@@ -13,6 +13,7 @@ export async function addUser(newUser: any) {
         password: newUser.password,
         email: newUser.email,
         type: newUser.type
+        
     })
 }
 
