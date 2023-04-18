@@ -30,3 +30,7 @@ export async function updateAgendamento(_id: string, agendamento: AgendamentoTyp
 export async function deleteAgendamento(_id: string) {
     return await Agendamento.findByIdAndDelete({ _id })
 }
+
+export async function getAgendamentoById(_id: string) {
+    return await Agendamento.findOne({ _id })
+}

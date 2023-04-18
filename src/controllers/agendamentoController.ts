@@ -1,4 +1,4 @@
-import {Request, Response} from 'express'
+import { Request, Response } from 'express'
 import * as AgendamentoService from '../service/AgendamentoService'
 
 export const createAgendamento = (req: Request, res: Response) => {
@@ -14,7 +14,7 @@ export const createAgendamento = (req: Request, res: Response) => {
 export const updateAgendamento = (req: Request, res: Response) => {
     let response = AgendamentoService.updateAgendamento(req.params.id, req.body)
     response.then(response => {
-        if (response.matchedCount>0) {
+        if (response.matchedCount > 0) {
             res.json(response)
         } else {
             res.status(404)
@@ -37,6 +37,13 @@ export const deleteAgendamento = (req: Request, res: Response) => {
 
 export const getByIdUser = (req: Request, res: Response) => {
     let response = AgendamentoService.getAgendamentosByUser(req.params.idUser)
+    response.then(value => {
+        res.json(value)
+    })
+}
+
+export const getById = (req: Request, res: Response) => {
+    let response = AgendamentoService.getAgendamentoById(req.params.id)
     response.then(value => {
         res.json(value)
     })

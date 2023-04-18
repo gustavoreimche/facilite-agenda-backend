@@ -11,5 +11,6 @@ router.delete('/delete/:id', AgendamentoController.deleteAgendamento)
 
 router.get('/:idUser', AgendamentoController.getByIdUser)
 
+router.get('/:id', AgendamentoController.getById)
 
 export default router;
