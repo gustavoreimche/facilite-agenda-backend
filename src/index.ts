@@ -1,10 +1,12 @@
 import express from 'express';
-import { mongoConnect } from './database/mongo';
 import cors from 'cors';
 import agendamentoRoutes from './routes/agendamentoRoutes'
 import despesasRoutes from './routes/despesasRoutes'
+import dotenv from 'dotenv'
 
-mongoConnect();
+dotenv.config();
+
+require('./database/mongo')
 
 const app = express();
 

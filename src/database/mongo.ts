@@ -1,15 +1,23 @@
-import { connect } from 'mongoose'
-import dotenv from 'dotenv'
-import User from '../models/User';
+const mongoose = require("mongoose")
 
-dotenv.config();
+const dbUser = process.env.DB_USER;
+const dbPassword = process.env.DB_PASS;
 
-export const mongoConnect = async () => {
 
-    try {
-        await connect(process.env.MONGO_URL as string);
-        console.log('CONECTED')
-    } catch (error) {
-        console.log(error)
-    }
+const connect = () => {
+    mongoose.connect(`mongodb+srv://${dbUser}:${dbPassword}@facilite-agenda.vq8stkz.mongodb.net/facilite-agenda?retryWrites=true&w=majority`)
+
+    const connection = mongoose.connection;
+
+    connection.on("error", () => {
+        console.error("Erro ao conectar com o mongoDB") 
+    })
+
+    connection.on("open", () => {
+        console.log("Conetado ao mongoDB com sucesso!")
+    })
 }
+
+connect();
+
+module.exports = mongoose;
