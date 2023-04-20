@@ -15,10 +15,21 @@ export const getUsers = (req: Request, res: Response) => {
     })
 }
 
+export const getUserById = (req: Request, res: Response) => {
+    let result = UserService.getUserById(req.params.id);
+    result.then(result => {
+        res.json(result)
+    })
+}
+
 export const getUserByEmailAndPassword = (req: Request, res: Response) => {
     let result = UserService.getUserByEmailAndPassword(req.body);
     result.then(result => {
-        res.json(result)
+        if(result == null) {
+            res.json({isAuth: false})
+        } else {
+            res.json({isAuth: true, result})
+        }
     });
 }
 

@@ -13,6 +13,11 @@ export async function getUsers() {
     return usuarios;
 }
 
+export async function getUserById(_id: string) {
+    const usuarios = await User.findOne({ _id })
+    return usuarios;
+}
+
 export async function getUserByEmailAndPassword(user: UserType) {
     const usuario = await User.findOne({ email: user.email, password: user.password })
     return usuario;
