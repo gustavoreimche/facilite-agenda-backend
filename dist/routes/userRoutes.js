@@ -27,6 +27,7 @@ const express_1 = require("express");
 const UserController = __importStar(require("../controllers/userController"));
 const router = (0, express_1.Router)();
 router.get('/', UserController.getUsers);
+router.get('/email/:email', UserController.getUsersByEmail);
 router.post('/create', UserController.createUser);
 router.post('/verificaacesso', UserController.getUserByEmailAndPassword);
 router.get('/:id', UserController.getUserById);

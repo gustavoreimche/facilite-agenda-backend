@@ -23,7 +23,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.updateUser = exports.delUser = exports.getUserByEmailAndPassword = exports.getUserById = exports.getUsers = exports.createUser = void 0;
+exports.updateUser = exports.delUser = exports.getUserByEmailAndPassword = exports.getUserById = exports.getUsersByEmail = exports.getUsers = exports.createUser = void 0;
 const UserService = __importStar(require("../service/UserService"));
 const createUser = (req, res) => {
     let result = UserService.addUser(req.body);
@@ -39,6 +39,13 @@ const getUsers = (req, res) => {
     });
 };
 exports.getUsers = getUsers;
+const getUsersByEmail = (req, res) => {
+    let result = UserService.getUserByEmail(req.params.email);
+    result.then(result => {
+        res.json(result);
+    });
+};
+exports.getUsersByEmail = getUsersByEmail;
 const getUserById = (req, res) => {
     let result = UserService.getUserById(req.params.id);
     result.then(result => {

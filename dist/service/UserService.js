@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.delUser = exports.updateUser = exports.addUser = exports.getUserByEmailAndPassword = exports.getUserById = exports.getUsers = void 0;
+exports.delUser = exports.updateUser = exports.addUser = exports.getUserByEmailAndPassword = exports.getUserByEmail = exports.getUserById = exports.getUsers = void 0;
 const User_1 = __importDefault(require("../models/User"));
 function getUsers() {
     return __awaiter(this, void 0, void 0, function* () {
@@ -28,6 +28,13 @@ function getUserById(_id) {
     });
 }
 exports.getUserById = getUserById;
+function getUserByEmail(email) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const usuarios = yield User_1.default.findOne({ email });
+        return usuarios;
+    });
+}
+exports.getUserByEmail = getUserByEmail;
 function getUserByEmailAndPassword(user) {
     return __awaiter(this, void 0, void 0, function* () {
         const usuario = yield User_1.default.findOne({ email: user.email, password: user.password });
