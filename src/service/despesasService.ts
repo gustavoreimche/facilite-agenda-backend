@@ -1,4 +1,3 @@
-import mongoose, { ObjectId } from "mongoose";
 import Despesas, { DespesasType } from "../models/Despesas";
 
 export async function getDespesasByUser(idUser: string) {
