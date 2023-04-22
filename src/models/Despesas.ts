@@ -4,14 +4,18 @@ import { Schema, model, Model, connection } from "mongoose";
 export type DespesasType = {
     descricao: string;
     valor: number;
-    date: Date;
+    day: number;
+    month: number;
+    year: number;
     idUser: string
 }
 
 const schema = new Schema<DespesasType>({
     descricao: { type: String, required: true },
     valor: { type: Number, required: true },
-    date: { type: Date, required: true },
+    day: { type: Number, required: true },
+    month: { type: Number, required: true },
+    year: { type: Number, required: true },
     idUser: { type: String, required: true, default: '64388f9d5a87a927ba68ea49' },
 })
 

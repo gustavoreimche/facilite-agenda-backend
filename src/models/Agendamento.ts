@@ -7,7 +7,9 @@ export type AgendamentoType = {
     servico: string;
     valor: number;
     formaPag: string;
-    date: Date;
+    day: number;
+    month: number;
+    year: number;
     idUser: string
 }
 
@@ -17,7 +19,9 @@ const schema = new Schema<AgendamentoType>({
     servico: { type: String, required: true },
     valor: { type: Number, required: true },
     formaPag: { type: String, default: 'none'},
-    date: { type: Date, required: true },
+    day: { type: Number, required: true },
+    month: { type: Number, required: true },
+    year: { type: Number, required: true },
     idUser: { type: String, required: true, default: '6438a0102b22c9db58afdb99' },
 })
 

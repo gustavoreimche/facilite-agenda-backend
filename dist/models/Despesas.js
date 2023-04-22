@@ -4,7 +4,9 @@ const mongoose_1 = require("mongoose");
 const schema = new mongoose_1.Schema({
     descricao: { type: String, required: true },
     valor: { type: Number, required: true },
-    date: { type: Date, required: true },
+    day: { type: Number, required: true },
+    month: { type: Number, required: true },
+    year: { type: Number, required: true },
     idUser: { type: String, required: true, default: '64388f9d5a87a927ba68ea49' },
 });
 const modelName = 'despesa';
