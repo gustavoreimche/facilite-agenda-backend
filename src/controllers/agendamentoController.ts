@@ -23,6 +23,7 @@ export const updateAgendamento = (req: Request, res: Response) => {
     })
 }
 
+
 export const deleteAgendamento = (req: Request, res: Response) => {
     let response = AgendamentoService.deleteAgendamento(req.params.id)
     response.then(response => {
