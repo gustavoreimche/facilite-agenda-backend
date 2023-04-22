@@ -17,6 +17,5 @@ app.use(cors());
 app.use('/users', userRoutes)
 app.use('/agendamentos', agendamentoRoutes)
 app.use('/despesas', despesasRoutes)
-app.get('/')
 
 app.listen(3000)
