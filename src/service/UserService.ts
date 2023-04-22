@@ -1,24 +1,35 @@
 import User from '../models/User';
 
+type UserType = {
+    _id: string,
+    name: string;
+    password: string;
+    email: string;
+    type: number
+}
 
 export async function getUsers() {
     const usuarios = await User.find({})
     return usuarios;
 }
 
-export async function addUser(newUser: any) {
-
-    await User.create({
-        name: newUser.name,
-        password: newUser.password,
-        email: newUser.email,
-        type: newUser.type
-        
-    })
+export async function getUserById(_id: string) {
+    const usuarios = await User.findOne({ _id })
+    return usuarios;
 }
 
-export async function updateUser(id: string, user: any) {
-    let userTemp = await User.findOne({ id })
+export async function getUserByEmailAndPassword(user: UserType) {
+    const usuario = await User.findOne({ email: user.email, password: user.password })
+    return usuario;
+}
+
+export async function addUser(newUser: UserType) {
+    return await User.create(newUser)
+}
+
+export async function updateUser(user: UserType) {
+    let _id = user._id
+    let userTemp = await User.findOne({ _id })
     if (userTemp != null) {
         userTemp.name = user.name;
         userTemp.email = user.email;
@@ -26,6 +37,10 @@ export async function updateUser(id: string, user: any) {
 
         await userTemp.save();
     }
+}
+
+export async function delUser(_id: string) {
+    return await User.findByIdAndDelete({ _id })
 }
 
 
