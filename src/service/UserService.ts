@@ -18,6 +18,11 @@ export async function getUserById(_id: string) {
     return usuarios;
 }
 
+export async function getUserByEmail(email: string) {
+    const usuarios = await User.findOne({ email })
+    return usuarios;
+}
+
 export async function getUserByEmailAndPassword(user: UserType) {
     const usuario = await User.findOne({ email: user.email, password: user.password })
     return usuario;

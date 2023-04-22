@@ -15,6 +15,13 @@ export const getUsers = (req: Request, res: Response) => {
     })
 }
 
+export const getUsersByEmail = (req: Request, res: Response) => {
+    let result = UserService.getUserByEmail(req.params.email);
+    result.then(result => {
+        res.json(result)
+    })
+}
+
 export const getUserById = (req: Request, res: Response) => {
     let result = UserService.getUserById(req.params.id);
     result.then(result => {

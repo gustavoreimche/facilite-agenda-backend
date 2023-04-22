@@ -4,6 +4,7 @@ import * as UserController from '../controllers/userController'
 const router = Router();
 
 router.get('/', UserController.getUsers)
+router.get('/email/:email', UserController.getUsersByEmail)
 router.post('/create', UserController.createUser)
 router.post('/verificaacesso', UserController.getUserByEmailAndPassword)
 router.get('/:id', UserController.getUserById)
