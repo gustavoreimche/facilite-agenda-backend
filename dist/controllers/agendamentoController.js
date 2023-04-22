@@ -23,7 +23,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getByIdUser = exports.deleteAgendamento = exports.updateAgendamento = exports.createAgendamento = void 0;
+exports.getById = exports.getByIdUser = exports.deleteAgendamento = exports.updateAgendamento = exports.createAgendamento = void 0;
 const AgendamentoService = __importStar(require("../service/AgendamentoService"));
 const createAgendamento = (req, res) => {
     req.body.date = new Date(req.body.date);
@@ -66,3 +66,10 @@ const getByIdUser = (req, res) => {
     });
 };
 exports.getByIdUser = getByIdUser;
+const getById = (req, res) => {
+    let response = AgendamentoService.getAgendamentoById(req.params.id);
+    response.then(value => {
+        res.json(value);
+    });
+};
+exports.getById = getById;

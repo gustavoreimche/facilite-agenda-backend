@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.deleteAgendamento = exports.updateAgendamento = exports.getAgendamentosByUser = exports.getAgendamentos = exports.addAgendamento = void 0;
+exports.getAgendamentoById = exports.deleteAgendamento = exports.updateAgendamento = exports.getAgendamentosByUser = exports.getAgendamentos = exports.addAgendamento = void 0;
 const Agendamento_1 = __importDefault(require("../models/Agendamento"));
 function addAgendamento(agendamento) {
     return __awaiter(this, void 0, void 0, function* () {
@@ -52,3 +52,9 @@ function deleteAgendamento(_id) {
     });
 }
 exports.deleteAgendamento = deleteAgendamento;
+function getAgendamentoById(_id) {
+    return __awaiter(this, void 0, void 0, function* () {
+        return yield Agendamento_1.default.findOne({ _id });
+    });
+}
+exports.getAgendamentoById = getAgendamentoById;
