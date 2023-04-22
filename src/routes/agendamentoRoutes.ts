@@ -9,12 +9,12 @@ router.post('/create', AgendamentoController.createAgendamento)
 router.put('/update/:id', AgendamentoController.updateAgendamento)
 
 router.delete('/delete/:id', AgendamentoController.deleteAgendamento)
+router.get('/', UserController.getUsers)
 
 router.get('/:idUser', AgendamentoController.getByIdUser)
 
 router.get('/id/:id', AgendamentoController.getById)
 
-router.get('/', UserController.getUsers)
 
 
 export default router;
