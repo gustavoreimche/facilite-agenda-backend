@@ -16,7 +16,7 @@ const schema = new Schema<DespesasType>({
     day: { type: Number, required: true },
     month: { type: Number, required: true },
     year: { type: Number, required: true },
-    idUser: { type: String, required: true, default: '64388f9d5a87a927ba68ea49' },
+    idUser: { type: String, required: true },
 })
 
 const modelName: string = 'despesa';
