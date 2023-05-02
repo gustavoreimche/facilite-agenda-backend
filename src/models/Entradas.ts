@@ -22,3 +22,4 @@ const schema = new Schema<EntradasType>({
 const modelName: string = 'entrada';
 
 export default (connection && connection.models[modelName]) ? connection.models[modelName] as Model<EntradasType>: model<EntradasType>(modelName, schema);
+

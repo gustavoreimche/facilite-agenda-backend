@@ -27,3 +27,4 @@ export const createEntrada = (req: Request, res: Response) => {
         res.json(result)
     })
 }
+
