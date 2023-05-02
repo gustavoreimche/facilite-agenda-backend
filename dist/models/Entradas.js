@@ -9,5 +9,5 @@ const schema = new mongoose_1.Schema({
     year: { type: Number, required: true },
     idUser: { type: String, required: true },
 });
-const modelName = 'despesa';
+const modelName = 'entrada';
 exports.default = (mongoose_1.connection && mongoose_1.connection.models[modelName]) ? mongoose_1.connection.models[modelName] : (0, mongoose_1.model)(modelName, schema);
