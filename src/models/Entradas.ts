@@ -7,6 +7,7 @@ export type EntradasType = {
     day: number;
     month: number;
     year: number;
+    formaPag: string;
     idUser: string
 }
 
@@ -16,6 +17,7 @@ const schema = new Schema<EntradasType>({
     day: { type: Number, required: true },
     month: { type: Number, required: true },
     year: { type: Number, required: true },
+    formaPag: {type: String, required: true, default: 'none'},
     idUser: { type: String, required: true},
 })
 

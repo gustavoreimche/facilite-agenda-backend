@@ -7,6 +7,7 @@ const schema = new mongoose_1.Schema({
     day: { type: Number, required: true },
     month: { type: Number, required: true },
     year: { type: Number, required: true },
+    formaPag: { type: String, required: true, default: 'none' },
     idUser: { type: String, required: true },
 });
 const modelName = 'entrada';
