@@ -38,7 +38,7 @@ const createUser = (req, res) => {
             id: result._id,
             email: result.email,
             password: result.password,
-        }, process.env.JWT_KEY, { expiresIn: "24h" });
+        }, process.env.JWT_KEY);
         res.json({ isAuth: true, result, token });
     });
 };

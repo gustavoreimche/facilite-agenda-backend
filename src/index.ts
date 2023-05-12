@@ -7,11 +7,16 @@ import userRoutes from "./routes/userRoutes";
 import dotenv from "dotenv";
 import { auth } from "./middlewares/auth";
 
+const swaggerUi = require("swagger-ui-express");
+const swaggerFile = require("../swagger_output.json");
+
 dotenv.config();
 
 require("./database/mongo");
 
 const app = express();
+
+app.use("/doc", swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
 app.use(express.json());
 app.use(cors());
