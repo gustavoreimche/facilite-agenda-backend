@@ -4,6 +4,7 @@ import agendamentoRoutes from "./routes/agendamentoRoutes";
 import despesasRoutes from "./routes/despesasRoutes";
 import entradasRoutes from "./routes/entradasRoutes";
 import userRoutes from "./routes/userRoutes";
+import alunasRoutes from "./routes/alunasRoutes";
 import dotenv from "dotenv";
 import { auth } from "./middlewares/auth";
 
@@ -26,5 +27,6 @@ app.use("/users", userRoutes);
 app.use("/agendamentos", auth.private, agendamentoRoutes);
 app.use("/despesas", auth.private, despesasRoutes);
 app.use("/entradas", auth.private, entradasRoutes);
+app.use("/alunas", alunasRoutes);
 
 app.listen(3000);
