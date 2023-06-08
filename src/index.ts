@@ -23,7 +23,6 @@ app.use(express.json());
 app.use(cors());
 
 app.use("/users", userRoutes);
-
 app.use("/agendamentos", auth.private, agendamentoRoutes);
 app.use("/despesas", auth.private, despesasRoutes);
 app.use("/entradas", auth.private, entradasRoutes);
