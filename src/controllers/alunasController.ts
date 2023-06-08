@@ -7,3 +7,7 @@ export const createAluna = (req: Request, res: Response) => {
 		res.json(result);
 	});
 };
+
+export const teste = (req: Request, res: Response) => {
+	res.json({ message: "Hello World!" });
+};
