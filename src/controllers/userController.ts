@@ -8,7 +8,7 @@ dotenv.config();
 export const createUser = (req: Request, res: Response) => {
 	let result = UserService.addUser(req.body);
 
-	result.then((result) => {
+	result.then(result => {
 		const token = JWT.sign(
 			{
 				id: result._id,
@@ -23,30 +23,30 @@ export const createUser = (req: Request, res: Response) => {
 
 export const getUsers = (req: Request, res: Response) => {
 	let result = UserService.getUsers();
-	result.then((result) => {
+	result.then(result => {
 		res.json(result);
 	});
 };
 
 export const getUsersByEmail = (req: Request, res: Response) => {
 	let result = UserService.getUserByEmail(req.params.email);
-	result.then((result) => {
+	result.then(result => {
 		res.json(result);
 	});
 };
 
 export const getUserById = (req: Request, res: Response) => {
 	let result = UserService.getUserById(req.params.id);
-	result.then((result) => {
+	result.then(result => {
 		res.json(result);
 	});
 };
 
 export const getUserByEmailAndPassword = (req: Request, res: Response) => {
 	let result = UserService.getUserByEmailAndPassword(req.body);
-	result.then((result) => {
+	result.then(result => {
 		if (result == null) {
-			res.json({ isAuth: false });
+			res.status(404).json({ isAuth: false });
 		} else {
 			const token = JWT.sign(
 				{
@@ -65,14 +65,14 @@ export const getUserByEmailAndPassword = (req: Request, res: Response) => {
 
 export const delUser = (req: Request, res: Response) => {
 	let result = UserService.delUser(req.body);
-	result.then((result) => {
+	result.then(result => {
 		res.json(result);
 	});
 };
 
 export const updateUser = (req: Request, res: Response) => {
 	let result = UserService.updateUser(req.body);
-	result.then((result) => {
+	result.then(result => {
 		res.json(result);
 	});
 };

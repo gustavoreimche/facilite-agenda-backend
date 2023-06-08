@@ -1,8 +1,8 @@
 import { Router } from "express";
-import * as AlunasControlles from "../controllers/alunasController";
+import * as AlunasController from "../controllers/alunasController";
 
 const router = Router();
 
-router.post("/", AlunasControlles.createAluna);
+router.post("/create", AlunasController.createAluna);
 
 export default router;
