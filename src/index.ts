@@ -22,10 +22,10 @@ app.use("/doc", swaggerUi.serve, swaggerUi.setup(swaggerFile));
 app.use(express.json());
 app.use(cors());
 
+app.use("/alunas", alunasRoutes);
 app.use("/users", userRoutes);
 app.use("/agendamentos", auth.private, agendamentoRoutes);
 app.use("/despesas", auth.private, despesasRoutes);
 app.use("/entradas", auth.private, entradasRoutes);
-app.use("/alunas", alunasRoutes);
 
 app.listen(3000);
